@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/styledin
+    username: faiza
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+
+
+# Spring Boot automatically loads the application.yml file from the src/main/resources directory and uses the properties defined in it to configure your application.
+
+#  If you need different configurations for different environments (e.g., development, testing, production), you can also create separate .yml files like application-dev.yml, application-test.yml, and application-prod.yml in the same directory. Spring Boot will load the appropriate configuration file based on the active profile set in your application.
