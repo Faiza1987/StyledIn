@@ -1,15 +1,14 @@
 package com.styledin.styledin.controllers;
 
-import com.fasterxml.jackson.databind.util.ExceptionUtil;
 import com.styledin.styledin.models.Stylist;
 import com.styledin.styledin.services.StylistService;
-import org.apache.tomcat.util.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/stylists")
@@ -45,7 +44,7 @@ public class StylistController {
 
     // get specific stylist
     @GetMapping("/id")
-    public ResponseEntity<Stylist> getStylist(@RequestBody int stylistId){
+    public ResponseEntity<Stylist> getStylist(@RequestBody UUID stylistId){
         try {
             Stylist stylist = stylistService.getStylist(stylistId);
             return ResponseEntity.ok(stylist);
@@ -56,7 +55,7 @@ public class StylistController {
     }
     // Update
     @PatchMapping("/id")
-    public ResponseEntity<Stylist> updateStylist(@RequestBody updateStylistRequest) {
+    public ResponseEntity<Stylist> updateStylist(@RequestBody Stylist updateStylistRequest) {
         try {
             Stylist updatedStylist = stylistService.updateStylist(updateStylistRequest);
             return ResponseEntity.ok(updatedStylist);
@@ -68,7 +67,7 @@ public class StylistController {
 
     // Delete
     @DeleteMapping("/id")
-    public ResponseEntity<Stylist> deleteStylist(@RequestBody int stylistId) {
+    public ResponseEntity<Stylist> deleteStylist(@RequestBody UUID stylistId) {
         try {
             Stylist deletedStylist = stylistService.deleteStylist(stylistId);
             return ResponseEntity.ok(deletedStylist);
