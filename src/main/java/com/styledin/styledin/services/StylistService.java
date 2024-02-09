@@ -6,11 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class StylistService {
-    @Autowired
+//    @Autowired
     private StylistRepository stylistRepository;
 
     // Create
@@ -24,7 +23,7 @@ public class StylistService {
     }
 
     // Read one
-    public Stylist getStylist(UUID id) {
+    public Stylist getStylist(Long id) {
         return stylistRepository.findById(id).orElse(null);
     }
 
@@ -46,7 +45,7 @@ public class StylistService {
     }
 
     // delete
-    public Stylist deleteStylist(UUID id) {
+    public Stylist deleteStylist(Long id) {
         Stylist stylistToDelete = getStylist(id);
         stylistRepository.deleteById(id);
         return stylistToDelete;

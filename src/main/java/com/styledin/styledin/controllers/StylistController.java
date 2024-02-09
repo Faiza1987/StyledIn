@@ -44,7 +44,7 @@ public class StylistController {
 
     // get specific stylist
     @GetMapping("/id")
-    public ResponseEntity<Stylist> getStylist(@RequestBody UUID stylistId){
+    public ResponseEntity<Stylist> getStylist(@RequestBody Long stylistId){
         try {
             Stylist stylist = stylistService.getStylist(stylistId);
             return ResponseEntity.ok(stylist);
@@ -67,7 +67,7 @@ public class StylistController {
 
     // Delete
     @DeleteMapping("/id")
-    public ResponseEntity<Stylist> deleteStylist(@RequestBody UUID stylistId) {
+    public ResponseEntity<Stylist> deleteStylist(@RequestBody Long stylistId) {
         try {
             Stylist deletedStylist = stylistService.deleteStylist(stylistId);
             return ResponseEntity.ok(deletedStylist);
